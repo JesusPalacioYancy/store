@@ -1,0 +1,27 @@
+<div class="group rounded-lg border bg-white shadow-md object-center transition duration-300 transform hover:scale-105">
+    <a [routerLink]="['/product', product.id]" class="w-full overflow-hidden rounded-t-lg bg-gray-200">
+        <img [src]="product.image" [alt]="product.title" class="h-64 w-full object-cover object-center group-hover:opacity-60">
+    </a>
+    <div class="flex flex-col space-y-2 p-4">
+        <h4 class="text-xs text-gray-700">{{ product.title }}</h4>
+        <p class="text-lg font-medium text-gray-900">{{ product.price | currency: '$': 'symbol': '1.2' }}</p>
+        <p class="text-sm font-medium text-gray-900">{{ product.creationAT | timeAgo }}</p> 
+    
+        <div class="flex justify-between">
+                <button class="text-black bg-gray-200 font-medium rounded-lg text-sm px py-2.5 w-1/4"
+                (click)="addToCartHandler()">
+                <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+    
+                <button class="text-black bg-gray-200 font-medium rounded-lg text-sm px py-2.5 w-1/4"
+                (click)="editedData()">
+                <i class="fa-solid fa-pen"></i>
+                </button>
+    
+                <button class="text-black bg-gray-200 font-medium rounded-lg text-sm px py-2.5 w-1/4" 
+                (click)="postIndexProduct()">
+                <i class="fa-solid fa-trash-can"></i>
+                </button>
+        </div>
+</div>
+
